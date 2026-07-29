@@ -1,0 +1,93 @@
+@baseUrl = http://localhost:5080/api/v1
+@accessToken = PASTE_ACCESS_TOKEN_HERE
+
+### Register a new user
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "userName": "admin1",
+  "password": "P@ssw0rd123",
+  "role": "Admin"
+}
+
+### Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "userName": "admin1",
+  "password": "P@ssw0rd123"
+}
+
+### Refresh token
+POST {{baseUrl}}/auth/refresh
+Content-Type: application/json
+
+{
+  "accessToken": "{{accessToken}}",
+  "refreshToken": "PASTE_REFRESH_TOKEN_HERE"
+}
+
+### Get all products (paginated, public)
+GET {{baseUrl}}/products?pageNumber=1&pageSize=10
+
+### Search products
+GET {{baseUrl}}/products?search=cable&pageNumber=1&pageSize=10
+
+### Get single product
+GET {{baseUrl}}/products/1
+
+### Get items for a product
+GET {{baseUrl}}/products/1/items
+
+### Create product (requires auth)
+POST {{baseUrl}}/products
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "productName": "Mechanical Keyboard"
+}
+
+### Update product (requires auth)
+PUT {{baseUrl}}/products/1
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "productName": "Mechanical Keyboard - RGB"
+}
+
+### Delete product (requires Admin role)
+DELETE {{baseUrl}}/products/1
+Authorization: Bearer {{accessToken}}
+
+### Create item for a product (requires auth)
+POST {{baseUrl}}/items
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "productId": 1,
+  "quantity": 25
+}
+
+### Get all items (paginated)
+GET {{baseUrl}}/items?pageNumber=1&pageSize=10
+
+### Update item quantity (requires auth)
+PUT {{baseUrl}}/items/1
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+  "quantity": 40
+}
+
+### Delete item (requires Admin role)
+DELETE {{baseUrl}}/items/1
+Authorization: Bearer {{accessToken}}
+
+### Health check
+GET http://localhost:5080/health

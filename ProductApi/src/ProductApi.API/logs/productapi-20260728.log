@@ -1,0 +1,44 @@
+2026-07-28 20:21:18.318 +05:30 [INF] 
+Starting Product API
+2026-07-28 20:26:14.319 +05:30 [ERR] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP POST /api/v1/auth/register responded 500 in 1125.4862 ms
+ProductApi.Domain.Exceptions.ValidationAppException: One or more validation failures occurred.
+   at ProductApi.Application.Services.AuthService.RegisterAsync(RegisterRequestDto dto, CancellationToken ct) in C:\Users\asus\Downloads\ProductApi\src\ProductApi.Application\Services\AuthService.cs:line 28
+   at ProductApi.API.Controllers.V1.AuthController.Register(RegisterRequestDto dto, CancellationToken ct) in C:\Users\asus\Downloads\ProductApi\src\ProductApi.API\Controllers\V1\AuthController.cs:line 33
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Program.<>c.<<<Main>$>b__0_1>d.MoveNext() in C:\Users\asus\Downloads\ProductApi\src\ProductApi.API\Program.cs:line 85
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-07-28 20:26:14.491 +05:30 [WRN] ProductApi.API.Middleware.ExceptionHandlingMiddleware
+Handled exception (400): One or more validation failures occurred.
+2026-07-28 20:26:38.082 +05:30 [INF] ProductApi.Application.Services.AuthService
+New user registered: string2
+2026-07-28 20:26:38.187 +05:30 [INF] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP POST /api/v1/auth/register responded 201 in 671.7490 ms
+2026-07-28 20:27:32.465 +05:30 [INF] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP POST /api/v1/auth/login responded 200 in 293.4510 ms
+2026-07-28 20:28:03.341 +05:30 [INF] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP POST /api/v1/auth/refresh responded 200 in 154.8934 ms
+2026-07-28 20:28:22.478 +05:30 [INF] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP POST /api/v1/auth/revoke responded 401 in 18.5004 ms
+2026-07-28 20:28:52.286 +05:30 [INF] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP POST /api/v1/items responded 401 in 17.9068 ms
+2026-07-28 21:19:10.246 +05:30 [INF] 
+Starting Product API
+2026-07-28 21:19:32.343 +05:30 [INF] ProductApi.Application.Services.AuthService
+New user registered: string5
+2026-07-28 21:19:32.444 +05:30 [INF] Serilog.AspNetCore.RequestLoggingMiddleware
+HTTP POST /api/v1/auth/register responded 201 in 1565.1238 ms
